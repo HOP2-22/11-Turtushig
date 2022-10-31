@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Header {
+  background-image: url(background.jpg);
+  width: 100vw;
+}
+
+nav {
+  font-family: Mulish sans-serif;
+}
+
+.team {
+  width: 87px;
+  height: 60px;
+  top: -4px;
+  left: 124px;
+  font-family: Mulish;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 37.65px;
+  text-align: center;
+  color: #ffffff;
+}
