@@ -1,28 +1,16 @@
 import { useState, useEffect, useRef } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div>
-      <div className="Header">
-        <nav>
-          <div>
-
-          </div>
-          <div></div>
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
-        </nav>
-      </div>
-      <div className="Main1"></div>
-      <div className="Main2"></div>
-      <div className="Main3"></div>
-      <div className="Main4"></div>
-      <div className="Footer"></div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
