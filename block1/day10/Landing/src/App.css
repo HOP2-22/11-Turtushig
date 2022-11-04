@@ -1,8 +1,6 @@
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
+  margin: 0px;
+  padding: 0px;
 }
 
 .Header {
@@ -12,11 +10,10 @@ body {
   display: flex;
   justify-content: space-around;
 }
-
 nav {
   font-family: Mulish sans-serif;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .l-nav {
