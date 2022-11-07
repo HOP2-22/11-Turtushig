@@ -1,109 +1,118 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import React from "react";
+import { Container, AppBar, Box, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
+import { fontFamily, fontWeight } from "@mui/system";
+import Card from "./components/Card";
+import CardList from "./components/cardMedia.json";
 
-interface Props {
-  window?: () => Window;
-}
-
-const drawerWidth = 240;
-const navItems = ["Products", "Services", "Contact", "Log in", "Get Access"];
-
-export default function DrawerAppBar(props: Props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        team.
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
+const App = () => {
   return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar component="nav">
-        <Container>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-            >
-              team.
-            </Typography>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#fff" }}>
-                  {item}
-                </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+    <AppBar sx={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
+      <Container>
+        //Header
+        <Box
           sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            display: "flex",
+            justifyContent: "space-between",
+            height: "60px",
           }}
         >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-      </Box>
-    </Box>
+          <Typography
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              fontFamily: "Mulish",
+              fontSize: "30px",
+              fontWeight: "800",
+              lineHeight: "37.65px",
+              textAlign: "center",
+            }}
+          >
+            team.
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              fontFamily: "Mulish",
+              fontSize: "16px",
+              fontWeight: "700",
+              lineHeight: "28px",
+              letterSpacing: "0em",
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              sx={{ color: "grey !important", textDecoration: "underline" }}
+            >
+              Products
+            </Typography>
+            <Typography
+              sx={{ color: "grey !important", textDecoration: "underline" }}
+            >
+              Services
+            </Typography>
+            <Typography
+              sx={{ color: "grey !important", textDecoration: "underline" }}
+            >
+              Contact
+            </Typography>
+            <Typography
+              sx={{ color: "grey !important", textDecoration: "underline" }}
+            >
+              Log in
+            </Typography>
+            <Button variant="outlined">Get Access</Button>
+          </Box>
+        </Box>
+        //Main Content
+        <Box>
+          <Typography
+            variant="h1"
+            sx={{
+              fontFamily: "Mulish",
+              color: "black",
+              fontSize: "48px",
+              fontWeight: "800",
+              lineHeight: "60px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            Blog posts
+          </Typography>
+          <Typography
+            paragraph={true}
+            sx={{
+              fontFamily: "Mulish",
+              fontWeight: "600",
+              fontSize: "18px",
+              lineHeight: "29px",
+              color: "grey !important",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            Our latest updates and blogs about managing your team
+          </Typography>
+          <Box>
+            {CardList.map((card) => (
+              <Grid xs={4}>
+                <Card
+                  header={card.CardContentHeader}
+                  name={card.CardContentName}
+                  image={card.Image}
+                  mainText={card.CardContentBody}
+                  avatar={""}
+                />
+              </Grid>
+            ))}
+          </Box>
+        </Box>
+      </Container>
+    </AppBar>
   );
-}
+};
+
+export default App;
