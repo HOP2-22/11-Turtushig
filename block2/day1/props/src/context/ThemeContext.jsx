@@ -12,7 +12,7 @@ function ThemeContext({ children }) {
   };
   return (
     <ColorModeContext.Provider
-      value={{ theme: theme, changeTheme: ColorModeContext }}
+      value={{ theme: theme, changeTheme: ColorModeHander }}
     >
       {children}
     </ColorModeContext.Provider>

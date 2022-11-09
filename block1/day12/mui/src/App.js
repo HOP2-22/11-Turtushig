@@ -111,12 +111,12 @@ const App = () => {
         <Box
           sx={{ width: "100vw", height: "100%", backgroundColor: "#252B3B" }}
         >
-          lmao
           <Box></Box>
         </Box>
       </Container>
     </AppBar>
   );
+  qa;
 };
 
 export default App;
