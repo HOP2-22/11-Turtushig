@@ -9,7 +9,6 @@ const App = () => {
   return (
     <AppBar sx={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
       <Container>
-        /* Header*/
         <Box
           sx={{
             display: "flex",
@@ -66,7 +65,6 @@ const App = () => {
             <Button variant="outlined">Get Access</Button>
           </Box>
         </Box>
-        /* Main*/
         <Box>
           <Typography
             variant="h1"
