@@ -1,13 +1,12 @@
 import React from "react";
 import { Container, AppBar, Box, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import { fontFamily, fontWeight } from "@mui/system";
 import Card from "./components/Card";
 import CardList from "./components/cardMedia.json";
 
 const App = () => {
   return (
-    <AppBar sx={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
+    <Box sx={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
       <Container>
         <Box
           sx={{
@@ -95,28 +94,28 @@ const App = () => {
             Our latest updates and blogs about managing your team
           </Typography>
           <Box>
-            {CardList.map((card) => (
-              <Grid xs={4}>
-                <Card
-                  header={card.CardContentHeader}
-                  name={card.CardContentName}
-                  image={card.Image}
-                  mainText={card.CardContentBody}
-                  avatar={""}
-                />
-              </Grid>
-            ))}
+            <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+              {CardList.map((card) => (
+                <Grid xs={4}>
+                  <Card
+                    header={card.CardContentHeader}
+                    name={card.CardContentName}
+                    image={card.Image}
+                    mainText={card.CardContentBody}
+                    avatar={""}
+                  />
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         </Box>
-        <Box
-          sx={{ width: "100vw", height: "100%", backgroundColor: "#252B3B" }}
-        >
-          <Box></Box>
-        </Box>
+        <Box></Box>
       </Container>
-    </AppBar>
+      <Box
+        sx={{ width: "100vw", height: "350px", backgroundColor: "#252B3B" }}
+      ></Box>
+    </Box>
   );
-  qa;
 };
 
 export default App;
