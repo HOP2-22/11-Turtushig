@@ -1,12 +1,21 @@
 import React from "react";
-import { Container, AppBar, Box, Typography, Grid } from "@mui/material";
+import { Container, Box, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import Card from "./components/Card";
 import CardList from "./components/cardMedia.json";
+import { Switch } from "@mui/material";
+import { ColorModeContext } from "./context/ThemeContext";
+import { useContext } from "react";
 
 const App = () => {
+  const { theme, changeTheme } = useContext(ColorModeContext);
   return (
-    <Box sx={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
+    <Box
+      sx={{
+        backgroundColor: theme === "dark" ? "#121212" : "white",
+        boxShadow: "none",
+      }}
+    >
       <Container>
         <Box
           sx={{
@@ -24,6 +33,7 @@ const App = () => {
               fontWeight: "800",
               lineHeight: "37.65px",
               textAlign: "center",
+              color: theme === "light" ? "black" : "white !important",
             }}
           >
             team.
@@ -41,6 +51,7 @@ const App = () => {
               textAlign: "center",
             }}
           >
+            <Switch checked={theme === "dark"} onChange={() => changeTheme()} />
             <Typography
               sx={{ color: "grey !important", textDecoration: "underline" }}
             >
@@ -75,6 +86,7 @@ const App = () => {
               lineHeight: "60px",
               display: "flex",
               alignItems: "center",
+              color: theme === "light" ? "black" : "white",
             }}
           >
             Blog posts
