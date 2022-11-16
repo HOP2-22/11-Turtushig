@@ -17,7 +17,7 @@ export default function MediaCard({ mainText, name, avatar, header, image }) {
         maxHeight: 400,
         background: theme === "light" ? "white" : "#212529",
         borderRadius: "30px",
-        color: theme === "dark" ? "gray !important" : "black !important",
+        color: theme === "dark" ? "gray !important" : "blac !important",
       }}
     >
       <CardMedia component="img" height="140" image={image} />
