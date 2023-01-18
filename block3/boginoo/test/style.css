@@ -1,0 +1,61 @@
+.body {
+  margin: 25px;
+  display: grid;
+  grid-template-rows: 5vh 1fr 5vh;
+  grid-template-areas:
+    "top"
+    "main"
+    "bot";
+}
+.top {
+  display: flex;
+  justify-content: flex-end;
+}
+.how {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  color: #02b589;
+}
+.greenoval-sm {
+  width: 74px;
+  height: 40px;
+  background-color: #02b589;
+  border-radius: 50px;
+  display: grid;
+  place-items: center;
+}
+.whiteoval-sm {
+  width: 62px;
+  height: 28px;
+  border-radius: 50px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.greenstripe {
+  height: 6px;
+  width: 27px;
+  background-color: #02b589;
+  border-radius: 50px;
+}
+.name {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 70px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #02b589;
+}
