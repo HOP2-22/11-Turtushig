@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
   return (
     <div className="App">
@@ -25,40 +25,29 @@ const Login = () => {
         >
           Boginoo
         </div>
-        <div className="login-Logo">Login</div>
+        <div className="login-Logo">Sign Up</div>
         <div className="Login-bar">
-          <div className="Email-pass">Email:</div>
+          <div className="Email-pass">Enter Email:</div>
           <input
             type={"text"}
             placeholder="name@mail.domain"
             className="Email-passBar"
           />
-          <div className="Email-pass">Password</div>
+          <div className="Email-pass">Enter Password:</div>
           <input
             type={"password"}
             placeholder=" ••••••••••"
             className="Email-passBar"
           />
-          <div className="Rem">
-            <span className="Checkbox-text">
-              <input type={"checkbox"} />
-              Remember Me
-            </span>
-            <a href="/lel" className="Forgot">
-              Forgot Password?
-            </a>
-          </div>
-          <button className="Login-login">Login</button>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "25px",
-            }}
-          >
-            <a href="/Signup" className="Signup">
-              Signup?
-            </a>
+          <div>
+            <div className="Email-pass">Enter Password Again:</div>
+            <input
+              type={"password"}
+              placeholder=" ••••••••••"
+              className="Email-passBar"
+            />
+            <div></div>
+            <button className="Login-login">Sign Up</button>
           </div>
         </div>
       </div>
@@ -70,4 +59,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
