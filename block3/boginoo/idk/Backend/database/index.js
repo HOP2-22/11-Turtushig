@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
-
-const uri = process.env.MONGODB_URL || "";
+const uri =
+  "mongodb+srv://Turtushig-Hop2:mongo123@cluster0.ccvlebz.mongodb.net/test";
 
 const connect = async () => {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+    });
     console.log("Database is successfully connected");
   } catch (error) {
-    console.log(error);
+    console.log("error ", error);
   }
 };
 

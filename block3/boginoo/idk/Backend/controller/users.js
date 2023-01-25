@@ -1,12 +1,14 @@
-const userModel = require("../model/user.js");
+const User = require("../model/user");
 const bcrypt = require("bcrypt");
-const { findOne } = require("../model/user.js");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 exports.getUser = async (req, res) => {
+  const token = req?.headers?.token;
   if (!req.body?.email) {
     res.status(400).json({ message: "Bad request" });
   }
-  const user = await userModel.find();
+  const user = await User.findOne();
   if (req.body?.email === user) {
     console.log("User not found");
   }
@@ -20,25 +22,49 @@ exports.getUser = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  // hereglegchees emaiol password  baigaaa esehiig shalgah
   if (!req.body?.email || !req.body?.password) {
     res.status(400).json({ message: "Bad request" });
   }
+
+  // hereglegchees emaiol password avah
   const { email, password } = req.body;
+
+  // error handle hiih
   try {
-    const response = await userModel.findOne({
+    // irsen email-eer useriig haih
+    const user = await User.findOne({
       email,
     });
-    console.log(response);
-    if (response === null) {
-      res.status(200).json({ status: "error", error: "User not found" });
+
+    // hervee iim user bhgui bol aldaa  butssaah
+    if (!user) {
+      res.status(400).json({ status: "error", error: "User not found" });
       return;
     }
-    console.log(password, response.password);
-    const match = await bcrypt.compare(password, response.password);
+
+    // hervee iim user baival irsen password-iig hashed password jishih
+    const match = await bcrypt.compare(password, user.password);
+
     if (match) {
-      res
-        .status(200)
-        .json({ message: "Logged in successfully", username: email });
+      // token generatleh
+      const token = jwt.sign(
+        {
+          id: user._id,
+          email: user.email,
+        },
+        process.env.ACCESS_TOKEN_KEY,
+        {
+          expiresIn: "5m",
+        }
+      );
+
+      // genertelsen token-oo responsoor butsaah
+      res.status(200).json({
+        message: "Logged in successfully",
+        email,
+        token,
+      });
     } else {
       res.status(404).json({ message: "Email or password incorrect" });
     }
@@ -55,20 +81,24 @@ exports.createUser = async (req, res) => {
     res.status(400).json({ message: "Bad request" });
   }
   const { email, password } = req.body;
-  const oldEmail = userModel.findOne({
-    email,
-  });
-  if (req.body.email === oldEmail) {
+
+  const user = await User.find({});
+
+  if (user) {
     return res.send({ status: "error", error: "email already exists" });
   }
+
+  res.status(200).send("ok");
+
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const response = await userModel.create({
+    const newUser = await User.create({
       email,
       password: hashedPassword,
     });
-    console.log(response);
-    res.status(200).json({ message: "User created successfully" });
+    res
+      .status(200)
+      .json({ message: "User created successfully", email: newUser.email });
   } catch (err) {
     console.log(err);
   }

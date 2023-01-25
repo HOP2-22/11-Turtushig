@@ -71,7 +71,7 @@ function Home() {
   return (
     <div className="App">
       <div className="top">
-        <a href="#lmao" className="how">
+        <a href="/" className="how">
           How does it work?
         </a>
         <button
@@ -112,8 +112,8 @@ function Home() {
         </div>
       </div>
       <div className="bot">
-        <div className="botText1">Made with ♥️ by Nest Academy</div>
-        <div className="botText2">©boginoo.io 2020</div>
+        <div className="botText1">Made with ♥️ by Pinecone Academy</div>
+        <div className="botText2">©boginoo.io 2023</div>
       </div>
     </div>
   );
