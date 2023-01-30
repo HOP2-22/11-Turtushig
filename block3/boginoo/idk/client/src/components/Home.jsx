@@ -5,68 +5,22 @@ import Cookies from "js-cookie";
 import "./App.css";
 
 function Home() {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPass, setLoginPass] = useState("");
-  const [signUpEmail, setSignUpEmail] = useState("");
-  const [signUpPass, setSignUpPass] = useState("");
-  const [user, setUser] = useState(null);
+  const [enteredLink, setEnteredLink] = useState("");
+  const [shortenedLink, setShortenedLink] = useState("");
+
+  const shortenLink = async () => {
+    try {
+      const response = await axios.post("http://localhost:3333/", {
+        shortenedLink: shortenLink,
+        email: "test@example.com",
+      });
+      setShortenedLink(response.data.url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const navigate = useNavigate();
-
-  axios.interceptors.request.use(
-    (config) => {
-      const token = Cookies.get("token");
-      config.headers.set("token", token);
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
-
-  const login = async (e) => {
-    e.preventDefault();
-    await axios
-      .post("http://localhost:3333/login", {
-        email: loginEmail,
-        password: loginPass,
-      })
-      .then((e) => {
-        Cookies.set("token", e.data.token);
-        setUser(e.data.userName);
-      })
-      .catch((e) => {
-        console.log(e);
-        throw e;
-      });
-    e.preventDefault();
-  };
-
-  const signUp = async (e) => {
-    e.preventDefault();
-    await axios
-      .post("http://localhost:3333/register", {
-        email: signUpEmail,
-        password: signUpPass,
-      })
-      .then((e) => console.log(e))
-      .catch((e) => console.log(e));
-    e.preventDefault();
-  };
-  const request = async (e) => {
-    const a = await axios.get(`http://localhost:3333`);
-    console.log(a);
-  };
-
-  const LogOut = () => {
-    Cookies.remove("token");
-    setUser(null);
-  };
-  useEffect(() => {
-    const getUser = async () => {
-      const a = await axios.get(`http://localhost:3333`);
-    };
-  });
 
   return (
     <div className="App">
@@ -105,10 +59,16 @@ function Home() {
           <input
             type={"text"}
             placeholder="https://www.web-huudas.mn"
-            row="30"
+            value={enteredLink}
+            onChange={(e) => setEnteredLink(e.target.value)}
             className="SearchBar"
           />
-          <button className="Shorten">Shorten</button>
+          <button className="Shorten" onClick={shortenLink}>
+            Shorten
+          </button>
+        </div>
+        <div>
+          <p>Short Link: {shortenedLink}</p>
         </div>
       </div>
       <div className="bot">

@@ -54,14 +54,15 @@ const Login = () => {
             <div className="greenstripe1"></div>
           </div>
         </div>
-        <div
+        <d
+          iv
           className="name"
           onClick={() => {
             navigate("/");
           }}
         >
           Boginoo
-        </div>
+        </d>
         <div className="login-Logo">Login</div>
         <div className="Login-bar">
           <div className="Email-pass">Email:</div>
