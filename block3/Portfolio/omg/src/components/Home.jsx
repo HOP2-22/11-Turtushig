@@ -1,18 +1,20 @@
 import React from "react";
 import { Box, Container, TypoGraphy, AppBar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "./App.css";
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <Box>
-      <Container>
+      <Container maxWidth="md">
         <nav>
           <a
             href="/"
             onClick={() => {
               navigate("/");
             }}
+            className="name"
           >
             Turtushig Enkhtaivan
           </a>
@@ -21,6 +23,7 @@ const Home = () => {
             onClick={() => {
               navigate("/Works");
             }}
+            className="navBar1"
           >
             Works
           </a>
@@ -29,6 +32,7 @@ const Home = () => {
             onClick={() => {
               navigate("/Posts");
             }}
+            className="navBar1"
           >
             Posts
           </a>
@@ -37,10 +41,13 @@ const Home = () => {
             onClick={() => {
               navigate("/Uses");
             }}
+            className="navBar1"
           >
             Uses
           </a>
-          <a href="https://github.com/HOP2-22/11-Turtushig">Source</a>
+          <a href="https://github.com/HOP2-22/11-Turtushig/tree/main/block3/Portfolio/omg">
+            Source
+          </a>
         </nav>
       </Container>
     </Box>

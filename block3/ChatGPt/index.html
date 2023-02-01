@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #game {
+        width: 500px;
+        height: 500px;
+        background-color: lightgray;
+        position: relative;
+      }
+      .platform {
+        width: 100px;
+        height: 20px;
+        background-color: gray;
+        position: absolute;
+        bottom: 0;
+      }
+      .player {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <div class="platform"></div>
+      <div class="player"></div>
+    </div>
+    <script>
+      const game = document.getElementById("game");
+      const player = document.querySelector(".player");
+      const platform = document.querySelector(".platform");
+      let isJumping = false;
+      let gravity = 1;
+      let position = 0;
+      let moveCount = 10;
+
+      function jump() {
+        if (!isJumping) {
+          isJumping = true;
+          let jumpCount = 0;
+
+          let jumpInterval = setInterval(function () {
+            player.style.bottom = position + "px";
+            position += 20;
+            jumpCount += 20;
+            if (jumpCount >= 150) {
+              clearInterval(jumpInterval);
+              let fallInterval = setInterval(function () {
+                if (
+                  player.offsetTop + player.offsetHeight >=
+                  platform.offsetTop
+                ) {
+                  clearInterval(fallInterval);
+                  isJumping = false;
+                  position = 0;
+                } else {
+                  position -= gravity;
+                  player.style.bottom = position + "px";
+                }
+              }, 20);
+            }
+          }, 20);
+        }
+      }
+
+      function moveRight() {
+        let left = player.offsetLeft + moveCount;
+        if (left + player.offsetWidth <= game.offsetWidth) {
+          player.style.left = left + "px";
+        }
+      }
+
+      function moveLeft() {
+        let left = player.offsetLeft - moveCount;
+        if (left >= 0) {
+          player.style.left = left + "px";
+        }
+      }
+
+      document.onkeydown = function (e) {
+        switch (e.code) {
+          case "Space":
+            jump();
+            break;
+          case "ArrowRight":
+            moveRight();
+            break;
+          case "ArrowLeft":
+            moveLeft();
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,29 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Lobster&family=Mulish&family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
+    <title>Typing Game</title>
+    <style>
+      #word {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #next-words {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      #input {
+        font-size: 24px;
+        width: 50%;
+        height: 50px;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+      }
+      #score, #wpm, #accuracy {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <div class="top">
-        <div class="how">How does it work</div>
-      </div>
-      <div class="logo">
-        <div class="greenoval-sm">
-          <div class="whiteoval-sm">
-            <div class="greenstripe"></div>
-          </div>
-        </div>
-        <div class="name">Boginoo</div>
-      </div>
-    </div>
-  </body>
-</html>
+    <div id="word"></div>
+    <div id="next-words"></div>
+    <input id="input" type="text">
+    <div id="score">Score: 0</div>
+    <div id="wpm">WPM: 0</div>
+    <div id="accuracy">Accuracy: 0%</div>
+    
+    <script>
+      // Common English words list
+      const words = ['the', 'of', 'and', 'a', 'to', 'in', 'that', 'it', 'with', 'as', 'for', 'was', 'on', 'are', 'by', 'be', 'this', 'at', 'which', 'but', 'not', 'or', 'an', 'each', 'from', 'has', 'have', 'had', 'he', 'she', 'they', 'you', 'i', 'your', 'they\'re', 'we', 'us', 'ours'];
+      
+      // Keep track of player's score
+      let score = 0;
+      
+      // Keep track of total number of characters typed
+      let totalChars = 0;
+      
+      // Keep track of number of correct characters typed
+      let correctChars = 0;
+      
+      // Keep track of start time
+      let startTime;
+      
+      // Get references to the HTML elements we'll be using
+      let wordEl = document.getElementById('word');
+      let nextWordsEl = document.getElementById('next-words');
+      let scoreEl = document.getElementById('score');
+      let inputEl = document.getElementById('input');
+      let wpmEl = document.getElementById('wpm');
+      let accuracyEl = document.getElementById('accuracy');
+      
+      // Display the first word to be typed
+      let currentWord = words[Math.floor(Math.random() * words.length)];
+      wordEl.textContent = currentWord;
+      
+      // Display the next 5 words to be typed
+      let nextWords = [];
+      for (let i = 0; i < 5; i++) {
+        nextWords.push(words[Math.floor(Math.random() * words.length)]);
+      }
+      nextWordsEl.textContent = "Next words: " + nextWords.join(', ');
+      
+      // Listen for player
