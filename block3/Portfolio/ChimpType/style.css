@@ -1,0 +1,34 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(147, 0, 252, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+#word {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 50px;
+}
+#next-words {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+#input {
+  font-size: 24px;
+  width: 50%;
+  height: 50px;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+#score,
+#wpm,
+#accuracy {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
