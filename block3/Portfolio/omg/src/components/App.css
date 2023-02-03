@@ -1,7 +1,35 @@
+body {
+  background-color: #202023;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+  align-items: center;
+}
+.LightModeIcon {
+  width: 40px;
+  height: 40px;
+  background: #fbd38d;
+  border: 0;
+  border-radius: 5px;
+}
+.LightModeIcon:hover {
+  background: #eeb552;
+}
+a {
+  text-decoration: inherit;
+}
+.Navbar {
+  display: flex;
+  height: 56px;
+  align-items: center;
+}
 .name {
-  color: rgb(232 230 227 / 92%);
+  color: #ffffffeb;
   font-weight: bold;
   font-size: 18px;
+  font-family: "M PLUS Rounded 1c";
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -14,5 +42,35 @@
   line-height: 20px;
   padding: 10px;
 }
+.name:hover .Icon {
+  transform: rotateZ(0deg);
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
 .navBar1 {
+  color: #ffffffeb;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 30px;
+  line-height: 20px;
+  padding: 10px;
+}
+.Icon {
+  transform: rotate(-25deg);
+}
+GitHubIcon {
+  font-size: small;
+}
+.Source {
+  display: flex;
+  height: 56px;
+  align-items: center;
 }
