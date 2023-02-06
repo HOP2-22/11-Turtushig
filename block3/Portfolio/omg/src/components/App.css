@@ -74,3 +74,77 @@ GitHubIcon {
   height: 56px;
   align-items: center;
 }
+
+/* Home page CSS*/
+.introduction {
+  display: flex;
+  flex-direction: row;
+}
+
+.intro {
+  background-color: #ffffff14;
+  color: #ffffffeb;
+  height: 48px;
+  width: 572px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+.intro-intro {
+  font-size: 36px;
+  font-family: "M Plus Rounded 1c";
+  color: #ffffffeb;
+  width: 449px;
+  margin: 0;
+}
+.intro-intro-intro {
+  margin: 0;
+  font-size: 16px;
+  color: #ffffffeb;
+  width: 449px;
+}
+
+.circle-pfp {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.Work {
+  color: #ffffffeb;
+  text-decoration: underline;
+  font-size: 20px;
+  font-family: "M PLUS Rounded 1c";
+  text-decoration-color: rgb(180, 174, 164);
+  font-weight: bold;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 4px;
+}
+
+.workText {
+  color: #e8e6e3eb;
+  font-size: 16px;
+}
+
+.HomePortfolioButton {
+  border: 0;
+  border-radius: 5px;
+  background-color: #81e6d9;
+  color: #1a202c;
+  font-size: 16px;
+  font-weight: 550;
+  padding: 0px 16px;
+  width: 147px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.HomePortfolioButton:hover {
+}
+.link {
+  color: #ff63c3;
+  text-decoration: none;
+}

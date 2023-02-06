@@ -6,7 +6,7 @@ import PetsIcon from "@mui/icons-material/Pets";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
-const Home = () => {
+const Header = () => {
   const navigate = useNavigate();
   return (
     <Box>
@@ -69,4 +69,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Header;
