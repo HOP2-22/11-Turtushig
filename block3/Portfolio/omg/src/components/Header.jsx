@@ -5,6 +5,7 @@ import "./App.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Header = () => {
       <Container maxWidth="md">
         <nav className="Nav">
           <span className="Navbar">
-            <a
+            <div
               href="/"
               onClick={() => {
                 navigate("/");
@@ -22,8 +23,8 @@ const Header = () => {
             >
               <PetsIcon className="Icon" />
               Turtushig Enkhtaivan
-            </a>
-            <a
+            </div>
+            <div
               href="/Works"
               onClick={() => {
                 navigate("/Works");
@@ -31,8 +32,8 @@ const Header = () => {
               className="navBar1"
             >
               Works
-            </a>
-            <a
+            </div>
+            <div
               href="/Posts"
               onClick={() => {
                 navigate("/Posts");
@@ -40,8 +41,8 @@ const Header = () => {
               className="navBar1"
             >
               Posts
-            </a>
-            <a
+            </div>
+            <div
               href="/Uses"
               onClick={() => {
                 navigate("/Uses");
@@ -49,14 +50,14 @@ const Header = () => {
               className="navBar1"
             >
               Uses
-            </a>
-            <a
+            </div>
+            <div
               className="navBar1"
               href="https://github.com/HOP2-22/11-Turtushig/tree/main/block3/Portfolio/omg"
             >
               <GitHubIcon sx={{ fontSize: "medium" }} />
               Source
-            </a>
+            </div>
           </span>
           <span>
             <button className="LightModeIcon" aria-label="Toggle theme">
