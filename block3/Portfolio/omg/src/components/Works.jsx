@@ -1,7 +1,11 @@
-import React from "react";
+import * as React from "react";
+import { Container } from "@mui/material";
+import Cards from "../components/Cards";
 
-function Works() {
-  return <div>Works</div>;
+export default function ImgMediaCard() {
+  return (
+    <Container maxWidth="sm">
+      <Cards />
+    </Container>
+  );
 }
-
-export default Works;
